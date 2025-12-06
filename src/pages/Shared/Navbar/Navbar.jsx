@@ -74,7 +74,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div className="flex gap-2">
+                    <div className="hidden lg:flex gap-2">
                         <Link to="/login" className="btn btn-primary btn-sm">Login</Link>
                         <Link to="/register" className="btn btn-outline btn-primary btn-sm">Register</Link>
                     </div>
