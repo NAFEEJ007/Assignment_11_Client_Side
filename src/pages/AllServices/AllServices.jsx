@@ -12,7 +12,7 @@ const AllServices = () => {
 
     useEffect(() => {
         setLoading(true);
-        const url = `http://localhost:5000/services?search=${search}&category=${category}`;
+        const url = `${import.meta.env.VITE_API_URL}/services?search=${search}&category=${category}`;
         axios.get(url)
             .then(res => {
                 setServices(res.data);

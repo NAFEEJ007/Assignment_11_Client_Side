@@ -50,20 +50,18 @@ const AuthProvider = ({ children }) => {
             // JWT implementation
             if (currentUser) {
                 const userInfo = { email: currentUser.email };
-                axios.post('http://localhost:5000/jwt', userInfo, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, userInfo, { withCredentials: true })
                     .then(res => {
                         if (res.data.success) {
                             setLoading(false);
                         }
                     })
             } else {
-                axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/logout`, {}, { withCredentials: true })
                     .then(res => {
                         setLoading(false);
                     })
             }
-            // setLoading(false); // Moved inside axios for better sync, but for now let's keep it simple if axios fails
-             setLoading(false);
         });
         return () => {
             return unsubscribe();

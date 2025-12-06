@@ -38,7 +38,7 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:5000/services?limit=6')
+        axios.get(`${import.meta.env.VITE_API_URL}/services?limit=6`)
             .then(res => {
                 console.log("Services fetched:", res.data);
                 if (Array.isArray(res.data)) {
@@ -54,7 +54,7 @@ const Home = () => {
                 setLoading(false);
             });
         
-        axios.get('http://localhost:5000/stats')
+        axios.get(`${import.meta.env.VITE_API_URL}/stats`)
             .then(res => setStats(res.data))
             .catch(err => console.error(err));
     }, [])
